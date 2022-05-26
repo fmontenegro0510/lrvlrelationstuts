@@ -14,15 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('cities', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->unsignedInteger('country_id');
             $table->string('city_name');
             $table->string('city_population');
             $table->timestamps();
-
             $table->foreign('country_id')
                 ->references('id')
-                ->on('countries');
+                ->on('countries')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
