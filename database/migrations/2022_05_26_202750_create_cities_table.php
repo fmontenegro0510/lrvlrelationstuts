@@ -13,6 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
+        //test next line
+        Schema::create('cities', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('population');
+            $table->timestamps();
+        });
+
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('country_id')->nullable();
